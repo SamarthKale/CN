@@ -1,19 +1,17 @@
-def crc(d, v):
-    n = len(v)
-    a = list(d + '0' * (n - 1))
-    for i in range(len(d)):
-        if a[i] == '1':
-            for j in range(n):
-                a[i + j] = str(int(a[i + j] != v[j]))
-    return ''.join(a[-(n - 1):])
 
-data = input("Enter binary data: ")
-divisor = input("Enter divisor: ")
+d=input("Data: "); v=input("Div: ")
+n=len(v); t=d+'0'*(n-1)
 
-remainder = crc(data, divisor)
-codeword = data + remainder
+for i in range(len(d)):
+    if t[i]=='1':
+        t=t[:i]+''.join('0' if t[i+j]==v[j] else '1' for j in range(n))+t[i+n:]
 
-print("\nOriginal Message  : ", data)
-print("CRC Remainder     : ", remainder)
-print("Codeword          : ", codeword)
-print("Message Sent      : ", codeword)
+c=t[-(n-1):]; code=d+c
+print("CRC:",c,"\nCodeword:",code)
+
+r=input("Received: "); t=r
+for i in range(len(r)-n+1):
+    if t[i]=='1':
+        t=t[:i]+''.join('0' if t[i+j]==v[j] else '1' for j in range(n))+t[i+n:]
+
+print("Error Detected!" if '1' in t[-(n-1):] else "No Error")
