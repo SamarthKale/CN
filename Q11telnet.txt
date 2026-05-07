@@ -1,0 +1,271 @@
+=============================
+TELNET SETUP
+=============================
+
+SERVER  = LINUX MACHINE
+CLIENT  = WINDOWS MACHINE
+
+
+=============================
+STEP 1: SETUP TELNET SERVER
+(ON LINUX MACHINE)
+=============================
+
+Open Terminal and run:
+
+sudo apt update
+
+sudo apt install openbsd-inetd telnetd
+
+sudo systemctl start openbsd-inetd
+
+sudo systemctl enable openbsd-inetd
+
+sudo ufw allow 23/tcp
+
+
+=============================
+STEP 2: CHECK SERVER IP
+(ON LINUX MACHINE)
+=============================
+
+Run:
+
+ip addr
+
+OR
+
+ifconfig
+
+
+Find the IP address of:
+- Ethernet adapter (preferred)
+- OR Wi-Fi adapter
+
+Example:
+192.168.1.5
+
+
+=============================
+STEP 3: ENABLE TELNET CLIENT
+(ON WINDOWS MACHINE)
+=============================
+
+Open:
+
+Control Panel
+→ Programs
+→ Turn Windows features on or off
+
+Enable:
+Telnet Client
+
+Click OK
+
+
+=============================
+STEP 4: CONNECT CLIENT TO SERVER
+(ON WINDOWS MACHINE)
+=============================
+
+Open CMD as Administrator and run:
+
+ping <server-ip>
+
+Example:
+
+ping 192.168.1.5
+
+
+Then connect using:
+
+telnet <server-ip> 23
+
+Example:
+
+telnet 192.168.1.5 23
+
+
+=============================
+STEP 5: LOGIN
+=============================
+
+After connection:
+
+- Enter Linux username
+- Enter Linux password
+
+You are now connected from:
+WINDOWS CLIENT → LINUX SERVER
+
+
+=============================
+IF PING WORKS BUT TELNET DOES NOT
+=============================
+
+Run on Linux server:
+
+sudo nano /etc/inetd.conf
+
+
+Find the telnet line and uncomment it
+(remove # from beginning of line).
+
+Save file:
+CTRL + O
+ENTER
+CTRL + X
+
+
+Restart service:
+
+sudo systemctl restart openbsd-inetd
+
+
+Try again from Windows client:
+
+telnet <server-ip> 23
+
+
+=============================
+IMPORTANT NOTES
+=============================
+
+1. Both systems must be connected to same network.
+
+2. Use Ethernet IP if available.
+
+3. Telnet uses port 23.
+
+4. Telnet is not secure.
+   Use only for learning/testing.
+
+
+
+=============================
+TELNET THEORY
+=============================
+
+
+ASCII DIAGRAM
+--------------
+
+          CLIENT (Windows)
+        +------------------+
+        |   Telnet Client  |
+        |      CMD         |
+        +------------------+
+                  |
+                  |  TCP/IP Network
+                  |  Port 23
+                  v
+        +------------------+
+        |   Telnet Server  |
+        |      Linux       |
+        +------------------+
+
+
+What is Telnet?
+---------------
+
+Telnet is a network protocol used to remotely access another computer over a TCP/IP network. It allows a user to connect to a remote machine and execute commands through a command-line interface (CLI).
+
+It is commonly used for remote administration, testing network services, and learning client-server communication.
+
+
+Telnet Server
+-------------
+
+A Telnet server is software running on the host machine that listens for Telnet client requests on port 23.
+
+When a client connects:
+- Server accepts the request
+- User enters username and password
+- Server provides remote terminal access
+
+
+Telnet Client
+-------------
+
+A Telnet client is the software used to connect to the Telnet server.
+
+Example:
+- Windows CMD using telnet command
+- Linux terminal using telnet utility
+
+
+Working of Telnet
+-----------------
+
+1. Client sends connection request
+2. Server accepts the request
+3. User enters login credentials
+4. After authentication, remote access is provided
+5. User can execute commands remotely
+
+
+Features of Telnet
+------------------
+
+- Remote login support
+- Uses TCP protocol
+- Works on port 23
+- Simple and lightweight
+- Useful for testing connectivity
+
+
+Common Telnet Commands
+----------------------
+
+telnet
+- Opens Telnet prompt
+
+telnet <IP-address> 23
+- Connects to specified server IP
+
+Example:
+telnet 192.168.1.5 23
+
+close
+- Closes current Telnet session
+
+quit
+- Exits Telnet completely
+
+display
+- Shows current Telnet settings
+
+
+Advantages of Telnet
+--------------------
+
+- Easy remote access
+- Simple configuration
+- Useful for testing
+- Lightweight protocol
+
+
+Disadvantages of Telnet
+-----------------------
+
+- Data is sent in plain text
+- Passwords are not encrypted
+- Not secure for public networks
+- SSH is preferred today
+
+
+Example Setup
+-------------
+
+Server  : Linux Machine
+Client  : Windows Machine
+
+Connection command:
+
+telnet <server-ip> 23
+
+
+Important Note
+--------------
+
+Telnet is mainly used for learning, testing, and local network practice. For secure remote access, SSH is preferred instead of Telnet.
