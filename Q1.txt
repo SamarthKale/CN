@@ -38,7 +38,7 @@ ip, ifconfig, dig, route )
 12. `traceroute www.google.com`
     Displays all intermediate routers between your system and Google.
 
-13. `nslookup`
+13. `nslookup www.google.com`
     Used to query DNS and obtain domain/IP information.
 
 14. `nmap google.com`
