@@ -1,0 +1,51 @@
+Wireshark
+
+Wireshark is a network packet analyzer used to capture and monitor network traffic in real time.
+
+
+-----------------------------------
+Protocols in Wireshark
+-----------------------------------
+
+1. TCP (Transmission Control Protocol)
+   - Reliable and connection-oriented protocol.
+   - Used for web browsing and file transfer.
+
+2. UDP (User Datagram Protocol)
+   - Fast and connectionless protocol.
+   - Used in streaming and gaming.
+
+3. ARP (Address Resolution Protocol)
+   - Converts IP address into MAC address.
+
+4. ICMP (Internet Control Message Protocol)
+   - Used for error reporting and ping.
+
+
+-----------------------------------
+Filters Used
+-----------------------------------
+
+tcp
+udp
+arp
+icmp
+http
+
+
+-----------------------------------
+Detecting Passwords in HTTP
+-----------------------------------
+
+1. Capture packets in Wireshark.
+2. Open an HTTP website and login.
+3. Apply filter:
+   http
+4. Open HTTP packets to view username and password in plain text.
+
+
+-----------------------------------
+Conclusion
+-----------------------------------
+
+Wireshark helps in analyzing TCP/IP protocols and monitoring network communication.
