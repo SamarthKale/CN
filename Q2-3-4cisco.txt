@@ -1,0 +1,41 @@
+Cisco Packet Tracer
+
+1. Cisco Packet Tracer is a network simulation software developed by Cisco.
+
+2. It helps users to design, configure, and troubleshoot computer networks virtually without using real hardware.
+
+3. Devices available in Cisco Packet Tracer:
+   a) Routers
+   b) Switches
+   c) PCs and Laptops
+   d) Servers
+   e) Wireless Devices
+   f) IoT Devices
+
+
+-----------------------------------
+Static Routing
+-----------------------------------
+
+1. Static routing is a routing method in which the network administrator manually configures the path for data packets.
+
+2. Static routes do not change automatically when the network topology changes.
+
+3. Static routing is simple, secure, and suitable for small networks.
+
+
+-----------------------------------
+Types of Static Routes
+-----------------------------------
+
+1. Standard Static Route
+   - Used to route packets to a specific destination network.
+
+2. Default Route
+   - Used when no specific route is available in the routing table.
+
+3. Summary Static Route
+   - Combines multiple routes into a single route to reduce routing table size.
+
+4. Floating Static Route
+   - Backup route used when the primary route fails.
