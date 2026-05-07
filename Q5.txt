@@ -1,4 +1,4 @@
-Perform network discovery using discovery tools (eg. Nmap, mrtg)
+ Perform network discovery using discovery tools (eg. Nmap, mrtg)
 Identify open, closed ports and services on target machine.
 1. Open the Linux terminal.
 
@@ -44,4 +44,25 @@ Theory: Installs MRTG network monitoring tool in Linux.
 Then run:
 
 mrtg
-Theory: MRTG is used for monitoring and graphing network traffic statistics.
+Theory: MRTG is used for monitoring and graphing  network traffic statistics.
+
+
+Identifying Open, Closed Ports and Services
+
+1. Open Ports
+
+   - Ports that are active and accepting connections.
+
+   - Example: HTTP (80), HTTPS (443), SSH (22)
+
+2. Closed Ports
+
+   - Ports that are accessible but no service is running on them.
+
+3. Services
+
+   - Applications running on open ports such as web server, DNS, FTP, SSH, etc.
+
+4. Nmap
+
+   - Nmap is a network discovery and security auditing tool used to scan hosts, ports, and services
