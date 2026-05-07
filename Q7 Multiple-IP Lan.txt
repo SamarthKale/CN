@@ -1,5 +1,5 @@
 1. Before IP aliasing:
-ip add show
+ip addr show
 2. IP aliasing:
 sudo ip addr add 10.0.0.5/8 dev enp2s0
 sudo ip addr add 192.168.205.5/24 dev enp2s0
@@ -10,7 +10,27 @@ sudo ip addr del 192.168.205.5/24 dev enp2s0
 4. After deletion:
 ip add show
 
+OR
 
+Setup Multiple IP Address on Single LAN
+
+1. ip addr
+
+2. sudo ip addr add 172.16.20.210/23 dev enp2s0
+
+3. sudo ip addr show dev enp2s0
+
+4. sudo ip addr add 172.16.20.214/23 dev enp2s0
+
+5. ip addr show dev enp2s0
+
+6. sudo ip addr del 172.16.20.164/23 dev enp2s0
+
+7. sudo ip addr show dev enp2s0
+
+
+IP Aliasing:
+IP aliasing is the process of assigning more than one IP address to a single network interface.
 
 
 
